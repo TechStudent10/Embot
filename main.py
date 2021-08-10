@@ -23,7 +23,6 @@ async def on_guild_join(guild):
 embed:
 title: This is a title
 description: This is a description
-url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     ```
     You can find more info on my GitHub page: https://github.com/TechStudent11/Embot.
     Thanks for using Embot.
