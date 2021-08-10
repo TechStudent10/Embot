@@ -19,8 +19,9 @@ Here is an example:
 embed:
 title: This is a title
 description: This is a description
-url: https://github.com/TechStudent11/Embot
 ```
+
+*Please note that the fields, "url" and "color" do NOT work. They will be ignored.*
 
 ## Thanks
 I have no idea how to end this README soooooooooooooooo...
