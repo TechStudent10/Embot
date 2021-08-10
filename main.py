@@ -60,7 +60,7 @@ async def on_message(message):
             color=0xFF5733
         )
 
-        # await message.delete()
+        await message.delete()
         await message.channel.send(embed=embed)
 
 bot.run(os.environ.get('DISCORD_BOT_TOKEN'))
