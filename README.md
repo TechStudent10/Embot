@@ -14,7 +14,9 @@ To invite the public version of the bot to your server, click [this link](https:
 ## How do I use it?
 Use the `>embed` command to send embeds.
 
-Syntax of command: `>embed <title> <description>`
+Syntax of command: `>embed "<title>" "<description>"`
+
+*Please note: If you want to add multiple words in a field, quotation marks **are required**.*
 
 ## Thanks
 I have no idea how to end this README soooooooooooooooo...
