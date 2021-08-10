@@ -12,11 +12,15 @@ A bot that allows you to send embeds in your Discord server.
 To invite the public version of the bot to your server, click [this link](https://discord.com/api/oauth2/authorize?client_id=874740907881152563&permissions=8&scope=bot), select your server, tell Discord that you are not a bot and **BAM**! Invited.
 
 ## How do I use it?
-Use the `>embed` command to send embeds.
+You need to use a specific syntax for sending an embed.
 
-Syntax of command: `>embed "<title>" "<description>"`
-
-*Please note: If you want to add multiple words in a field, quotation marks **are required**.*
+Here is an example:
+```
+embed:
+title: This is a title
+description: This is a description
+url: https://github.com/TechStudent11/Embot
+```
 
 ## Thanks
 I have no idea how to end this README soooooooooooooooo...
