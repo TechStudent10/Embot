@@ -19,11 +19,11 @@ Here is an example:
 embed:
 title: This is a title
 description: This is a description
+color: default
 ```
 
 ### Please Note that the following fields will be ignored due so some issues with them:
 - url: Won't work as it errors out for some reason.
-- color: Color is already specified. Won't work.
 
 ## Thanks
 I have no idea how to end this README soooooooooooooooo...
