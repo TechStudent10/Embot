@@ -21,14 +21,13 @@ async def on_guild_join(guild):
     I am Embot and I allow your members to send embeds. Pretty simple, right?
     Just make sure to tell your members that in order to send an embed, they have to use something like this:
     
-    ```
-embed:
+    ```embed:
 title: This is a title
-description: This is a description
-    ```
+description: This is a description```
+
     You can find more info on my GitHub page: https://github.com/TechStudent11/Embot.
-    Thanks for using Embot.
-    """, color=0xFF5733)
+    **Thanks for using Embot.**
+    """, color=discord.Colour.dark_gray())
     channel = discord.utils.get(guild.text_channels, name="general")
     await channel.send(embed=embed)
 
@@ -62,7 +61,7 @@ async def on_message(message):
     content = message.content
     if content.startswith('embed:'):
         kwargs = {}
-        color = 0xFF5733
+        color = discord.Colour.default()
         args = content.split('\n')
         del args[0]
         for arg in args:
@@ -74,8 +73,10 @@ async def on_message(message):
                 continue
             
             if arg_name == 'color' or arg_name == 'colour':
-                if hasattr(discord.Colour, arg_name):
-                    color = getattr(discord.Colour, arg_name)()
+                if hasattr(discord.Colour, arg_name.lower()):
+                    color = getattr(discord.Colour, arg_name.lower())()
+                else:
+                    continue
 
             del args_list[0]
 
@@ -83,21 +84,27 @@ async def on_message(message):
             if arg_content.startswith(' '):
                 arg_content = arg_content[1:]
 
+            print(arg_name + ':', arg_content)
+
             kwargs[arg_name] = arg_content
 
-        if 'color' in kwargs:
-            del kwargs['color']
+        if 'color' not in kwargs and 'colour' not in kwargs:
+            kwargs['color'] = color
+
+        print(kwargs)
+
+        # if 'color' in kwargs:
+        #     del kwargs['color']
         
-        if 'colour' in kwargs:
-            del kwargs['colour']
+        # if 'colour' in kwargs:
+        #     del kwargs['colour']
 
         if 'description' not in kwargs:
-            await message.channel.send(embed=discord.Embed(description='HEY! Description is rquired!'))
+            await message.channel.send(embed=discord.Embed(description='HEY! Description is required!'))
             return
 
         embed = discord.Embed(
-            **kwargs,
-            color=color
+            **kwargs
         )
 
         # await message.delete()
