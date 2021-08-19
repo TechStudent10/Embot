@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding-right: 5px;
+    transition: color .1s ease-in-out;
+}
+
+.header a:hover {
+    color: grey;
+}
+
+.content {
+    font-family: 'Open Sans', sans-serif;
+    margin: 1px;
+}
