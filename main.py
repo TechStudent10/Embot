@@ -106,8 +106,19 @@ async def on_message(message):
         embed = discord.Embed(
             **kwargs
         )
+        embed.set_author(name=message.author.name, icon_url=message.author.avatar_url)
 
-        # await message.delete()
+        await message.delete()
         await message.channel.send(embed=embed)
+
+@bot.command()
+async def ping(ctx):
+    latency = round(bot.latency * 1000)
+
+    embed = discord.Embed(
+        description=f'Latency: {latency}s'
+    )
+    embed.set_footer(text=f"Ping requested by {ctx.message.author}")
+    await ctx.send(embed=embed)
 
 bot.run(os.environ.get('DISCORD_BOT_TOKEN'))
