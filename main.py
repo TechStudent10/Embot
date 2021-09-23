@@ -10,6 +10,11 @@ load_dotenv('.env')
 
 bot = commands.Bot(command_prefix='>')
 
+def message(text):
+    return discord.Embed(
+        description=text
+    )
+
 @bot.event
 async def on_ready():
     print('Bot is Ready.')
@@ -84,14 +89,18 @@ async def on_message(message):
             if arg_content.startswith(' '):
                 arg_content = arg_content[1:]
 
-            print(arg_name + ':', arg_content)
+            if arg_name == 'description':
+                arg_content = arg_content.replace('<newline> ', '\n')
+                arg_content = arg_content.replace('<newline>', '\n')
+
+            # print(arg_name + ':', arg_content)
 
             kwargs[arg_name] = arg_content
 
         if 'color' not in kwargs and 'colour' not in kwargs:
             kwargs['color'] = color
 
-        print(kwargs)
+        # print(kwargs)
 
         # if 'color' in kwargs:
         #     del kwargs['color']
@@ -116,7 +125,7 @@ async def ping(ctx):
     latency = round(bot.latency * 1000)
 
     embed = discord.Embed(
-        description=f'Latency: {latency}s'
+        description=f'Latency: {latency}ms'
     )
     embed.set_footer(text=f"Ping requested by {ctx.message.author}")
     await ctx.send(embed=embed)
